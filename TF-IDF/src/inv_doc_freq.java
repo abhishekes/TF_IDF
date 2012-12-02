@@ -7,7 +7,7 @@ import java.lang.*;
 
 public class inv_doc_freq {
     //Method to invoke : java inv_doc_freq <input_filename> <output_file_name>
-	public static void main(String[] args) {
+        public static void main(String[] args) {
 
 		BufferedReader br=null;
 		try {
