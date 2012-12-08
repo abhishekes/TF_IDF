@@ -39,16 +39,19 @@ public class term_freq {
 			}
 			
 			Iterator<String> iterator = wordmap.keySet().iterator();
-			FileWriter fstream = new FileWriter(args[1]);
-			BufferedWriter output = new BufferedWriter(fstream);
+	
 			
 			while (iterator.hasNext()) {
-				String key = (String) iterator.next();
-				Integer count = wordmap.get(key);
+				String keyString =  (String) iterator.next();
+				FileWriter fstream = new FileWriter(new String (args[1] + keyString), true);
+				BufferedWriter output = new BufferedWriter(fstream);
+				//String key = (String) iterator.next();
+				Integer count = wordmap.get(keyString);
 				//output.write(key + ":"+ count.doubleValue()/totalCount.doubleValue() + "\n");
-				output.write(key + ":"+ args[0] + " , " + count.doubleValue()/totalCount.doubleValue() + "\n");
+				output.write(keyString + ":"+ args[0] + " , " + count.doubleValue()/totalCount.doubleValue() + "\n");
+				output.close();
 			}
-			output.close();
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
