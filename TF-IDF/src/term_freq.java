@@ -43,7 +43,7 @@ public class term_freq {
 			
 			while (iterator.hasNext()) {
 				String keyString =  (String) iterator.next();
-				FileWriter fstream = new FileWriter(new String (args[1] + keyString), true);
+				FileWriter fstream = new FileWriter(new String ("inter_" + args[1] + "_" +  keyString), true);
 				BufferedWriter output = new BufferedWriter(fstream);
 				//String key = (String) iterator.next();
 				Integer count = wordmap.get(keyString);
