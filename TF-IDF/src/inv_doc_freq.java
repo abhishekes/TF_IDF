@@ -1,12 +1,10 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
 import java.io.*;
-import java.lang.*;
 
 
 public class inv_doc_freq {
-    //Method to invoke : java inv_doc_freq <input_filename> <output_file_name>
+    //Method to invoke : java inv_doc_freq <input_filename> <task_id>
         public static void main(String[] args) {
 
 		BufferedReader br=null;
@@ -27,15 +25,15 @@ public class inv_doc_freq {
             br.close();
             br = new BufferedReader(new FileReader(args[0]));
             Double multiplier = Math.log (1/totalCount.doubleValue());
-            FileWriter fstream = new FileWriter(args[1]);
+            FileWriter fstream = new FileWriter("juice_inter_" + args[1], true);
 			BufferedWriter output = new BufferedWriter(fstream);
             while ((line = br.readLine()) != null) {
-			    String[] values = line.split(",");
+			    String[] values = line.split(":")[1].split(",");
 			    String  fileName = values[0];
 			    String  tf_string = values[1];
 			    Double tf = Double.parseDouble(tf_string);
 			    Double result = tf * multiplier;
-			    output.write(args[0] + " , " + fileName + " : " + result + "\n");
+			    output.write( line.split(":")[0]+ " , " + fileName + " : " + result + "\n");
 			    
 			}
             output.close();
