@@ -50,6 +50,7 @@ public class term_freq {
 				//output.write(key + ":"+ count.doubleValue()/totalCount.doubleValue() + "\n");
 				output.write(keyString + ":"+ args[0] + " , " + count.doubleValue()/totalCount.doubleValue() + "\n");
 				output.close();
+				fstream.close();
 			}
 			
 			
